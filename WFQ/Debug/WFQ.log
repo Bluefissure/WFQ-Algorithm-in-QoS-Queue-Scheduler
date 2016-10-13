@@ -1,0 +1,7 @@
+﻿  stdafx.cpp
+  WFQ.cpp
+d:\source files\visual studio 2015\projects\wfq\wfq\taskqueue.h(43): warning C4018: '<': signed/unsigned mismatch
+d:\source files\visual studio 2015\projects\wfq\wfq\server.h(91): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+d:\source files\visual studio 2015\projects\wfq\wfq\wfq.cpp(20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  WFQ.vcxproj -> D:\Source Files\Visual Studio 2015\Projects\WFQ\Debug\WFQ.exe
+  WFQ.vcxproj -> D:\Source Files\Visual Studio 2015\Projects\WFQ\Debug\WFQ.pdb (Full PDB)
