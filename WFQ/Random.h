@@ -6,7 +6,7 @@ double Time;
 double lambda_arrive, lambda_serve, p, q, totWeight, serveRate;
 FILE *tq0l, *tq0w, *tq1l, *tq1w, *tq2l, *tq2w;
 int taskNum, taskQueueNum, eventNum;
-double expntl(double lambda)
+double expntl(double lambda)	//generate random exponential distribution
 {
 	double u; // used to store a random number. 
 	do{

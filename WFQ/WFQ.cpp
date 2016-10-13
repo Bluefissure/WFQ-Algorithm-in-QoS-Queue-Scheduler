@@ -31,8 +31,8 @@ void init()
 	Time = 0;
 
 
-	tq0l = fopen("tq0l.txt", "w");
-	tq0w = fopen("tq0w.txt", "w");
+	tq0l = fopen("tq0l.txt", "w");//Queue length distribution of TaskQueue.0
+	tq0w = fopen("tq0w.txt", "w");//Wait time distribution of TaskQueue.0
 	tq1l = fopen("tq1l.txt", "w");
 	tq1w = fopen("tq1w.txt", "w");
 	tq2l = fopen("tq2l.txt", "w");

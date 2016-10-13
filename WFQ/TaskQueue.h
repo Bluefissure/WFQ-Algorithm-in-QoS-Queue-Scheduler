@@ -10,12 +10,12 @@ class TaskQueue
 private:
 	const int BUFSZ = 500;
 public:
-	int TQID;	//taskqueue ID
-	vector <Task> vc,	//to store tasks
-		buf;	//to store generated tasks which is should not be add to vc
-	double bufTime = 0,	//time of last task's generated time in buf
-		lastVirFinish = 0,	//last vitrual finish time
-		weight,	//
+	int TQID;					//taskqueue ID
+	vector <Task> vc,			//store tasks
+		buf;					//store generated tasks which is should not be add to vc
+	double bufTime = 0,			//time of last task's generated time in buf
+		lastVirFinish = 0,		//last vitrual finish time
+		weight,					//statistics (same below)
 		packetNumSend = 0,
 		packetNumReceived = 0,
 		totLength = 0,
@@ -27,10 +27,10 @@ public:
 	double avgWait() { return totWait / packetNumSend; }
 	TaskQueue() {};
 	bool IsEmpty() { return vc.size() == 0; }
-	void receive();	//generate tasks in taskqueue
-	void fillbuf();	//fill buf to BUFSZ to ensure enough valid tasks 
-	Task enqueue(Task task);	//Task enqueue
-	Task Pop();
+	void receive();				//generate tasks in taskqueue
+	void fillbuf();				//fill buf to BUFSZ to ensure enough valid tasks 
+	Task enqueue(Task task);	//task enqueue
+	Task Pop();					//task pop
 };
 Task TaskQueue::Pop()
 {
@@ -56,7 +56,7 @@ Task TaskQueue::enqueue(Task task)
 	lastVirFinish = task.virFinish;
 	packetNumReceived++;
 	totLength += vc.size();
-
+	//Write length info of taskqueues
 	if (TQID == 0) 
 		fprintf(tq0l, "%d\n", vc.size());
 	else if (TQID == 1) 

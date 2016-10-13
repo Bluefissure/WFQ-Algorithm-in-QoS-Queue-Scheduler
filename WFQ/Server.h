@@ -6,13 +6,13 @@
 #include"TaskQueue.h"
 class Server {
 public:
-	int N;//number of listen taskqueue
-	TaskQueue* listen[10];
-	void Serve(TaskQueue *tq);
-	void BeginServe();
-	TaskQueue* Schedule();
-	void report();
-	bool checkloop();
+	int N;						//number of listen taskqueue
+	TaskQueue* listen[10];		//taskqueues' pointer of witch this server is listening to
+	void Serve(TaskQueue *tq);	//serve a TaskQueue
+	void BeginServe();			//begin to serve
+	TaskQueue* Schedule();		//find next TaskQueue to serve
+	void report();				//report status of statistics
+	bool checkloop();			//check whether to break loop or not
 };
 void Server::Serve(TaskQueue *tq)
 {
@@ -30,6 +30,7 @@ void Server::Serve(TaskQueue *tq)
 //	printf("Server serve Task.%d from %.2f to %.2f\n", t.TID, priTime, Time);
 //	printf("Task.%d has been waitting for %.2f when begin to serve.\n", t.TID, priTime - t.timeGenerated);
 	tq->totWait += priTime - t.timeGenerated;
+	//Write Wait time
 	if (tq->TQID == 0) 
 		fprintf(tq0w, "%.8f\n", priTime - t.timeGenerated);
 	else if (tq->TQID == 1) 
